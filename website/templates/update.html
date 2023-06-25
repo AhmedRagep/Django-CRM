@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+{% load bootstrap5 %}
+{% block content %}
+  <div style="margin-left: 22%; width: 50%">
+    <h1>Update Record</h1>
+    <br />
+    <form method="POST" action="">
+      {% csrf_token %}
+      {% bootstrap_form form %}
+      <br>
+      {% buttons %}
+          <a href="{% url 'record' update.id %}">
+            <button class="btn btn-secondary">Back..</button>
+          </a>
+          <button type="submit" class="btn btn-secondary">Update Record</button>
+      {% endbuttons %}
+    </form>
+  </div>
+{% endblock content %}
