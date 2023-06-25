@@ -5,7 +5,9 @@
     </div>
     <ul class="nav navbar-nav">
       {% if request.user.is_authenticated %}
+        <li><a href="{% url 'add_record' %}">+ Add Record</a></li>
         <li class="active"><a href="{% url 'logout' %}">Logout</a></li>
+        
       {% else %}
         <li class="active"><a href="{% url 'register' %}">Reginster</a></li>
         <li class="active"><a href="{% url 'home' %}">Login</a></li>

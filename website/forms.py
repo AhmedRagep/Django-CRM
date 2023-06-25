@@ -1,6 +1,7 @@
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.models import User
 from django import forms
+from .models import Record
 
 class Register(UserCreationForm):
     email = forms.EmailField(label='', widget=forms.TextInput(attrs={'class':'form-control', 'placeholder':'Email Address'}))
@@ -32,3 +33,10 @@ class Register(UserCreationForm):
       self.fields['password2'].label = ''
       self.fields['password2'].help_text = '<span class="form-text text-muted"><small>Enter the same password as before, for verification.</small></span>'	
 
+
+
+class AddForm(forms.ModelForm):
+    class Meta:
+        model = Record
+        fields = '__all__'
+        exclude = ['created_at']

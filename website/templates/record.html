@@ -1,0 +1,49 @@
+{% extends 'base.html' %}
+{% block content %}
+<div style="
+border: 2px solid;
+border-radius: 20px;
+width: 60%;
+margin-left: 18%;
+">
+  <div style="margin-left: 20px;">
+    <h1>{{record.first_name|capfirst}} {{record.last_name|capfirst}}</h1>
+    <hr>
+    <p>
+    - <strong>Email: </strong>{{record.email}}<br/>
+    <br>
+    - <strong>Phone: </strong>{{record.phone}}
+    <br>
+    <br>
+    - <strong>Address: </strong>{{record.address}}<br/>
+    <br>
+    - <strong>City: </strong>{{record.city}}<br/>
+    <br>
+    - <strong>State: </strong>{{record.state}}<br/>
+    <br>
+    - <strong>ZIP: </strong>{{record.zipcode}}<br/>
+    <br>
+    - <strong>Created At: </strong>{{record.created_at}}<br/>
+    <br>
+    - <strong>ID: </strong>{{record.id}}<br/>
+    <br>
+    </p>
+  </div>
+  
+</div>
+<br>
+<div style="margin-left: 18%;">
+  <a href="{% url 'home' %}">
+  <button class="btn btn-secondary">Back To Home</button>
+  </a>
+
+  <a href="{% url 'update_record' record.id %}">
+  <button class="btn btn-primary">Update Record</button>
+  </a>
+
+  <a href="{% url 'delete_record' record.id %}">
+  <button class="btn btn-danger">Delete</button>
+  </a>
+</div>
+{% endblock content %}
+
